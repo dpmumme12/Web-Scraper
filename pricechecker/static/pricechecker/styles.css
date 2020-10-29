@@ -1,0 +1,45 @@
+table
+{
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th
+{
+    
+    text-align: left;
+    padding: 10px;
+    border-left: none;
+    border-right: none;
+}
+
+tr:nth-child(even)
+{
+    background-color: #dddddd;
+}
+
+.imdb-table{
+    display: inline-block; 
+    width: 40%;
+}
+
+.tomato-table{
+    display: inline-block; 
+    width: 40%;
+    float: right;
+}
+
+.table-div{
+    display: inline-block;
+    width: 100%;
+}
+
+
+@media all and (max-width:500px) {
+
+    
+    .imdb-table{display: block; width: 100%; }
+    .tomato-table{display: block; width: 100%; margin-top: 30px;}
+    
+  }

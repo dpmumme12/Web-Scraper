@@ -1,0 +1,28 @@
+{% extends "pricechecker/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <br>
+    <form method="POST" action="{% url 'search' %}">
+        {% csrf_token %}
+        <div class="form-group col-sm-3" style="margin: 0 auto;">
+            <input type="text" class="form-control" name="query"  placeholder="Search movies...">
+        </div>
+    </form>
+    <br>
+    {% for movie in movies %}
+        <div style="display: inline-block; width: 100%;">
+            <img src={{movie.movie_img}} class="rounded float-left" alt="..." style="width: auto; height: 150px; padding-right: 10px;">
+            <h4 style="display: inline-block;">{{movie.title}} {{movie.year}}</h4>
+            <h6>summary:</h6>
+            <p>{{movie.summary}}</p>
+            <p style="line-height: .5; display: inline-block;"><small style="display: inline-block;">Imdb Rating: {{movie.imdbRating}} &nbsp; 
+                Tomatometer: {{movie.tomato_score}} &nbsp;
+                Metascore: {{movie.metascore}}
+            </small></p>
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+
+{% endblock %}

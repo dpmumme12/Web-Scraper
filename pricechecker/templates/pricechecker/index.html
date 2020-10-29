@@ -1,0 +1,48 @@
+{% extends "pricechecker/layout.html" %}
+
+{% block body %}
+<div class=" container">
+  <br>
+  <form method="POST" action="{% url 'search' %}">
+    {% csrf_token %}
+      <div class="form-group col-sm-3" style="margin: 0 auto;">
+        <input type="text" class="form-control" name="query"  placeholder="Search movies...">
+      </div>
+  </form>
+  <br>
+  <div class="table-div">
+    <div class="imdb-table">
+      <h4 style="text-decoration: underline; text-align: center;">Imdb Top Movies</h4>
+      <br>
+      <table>
+        <tr>
+                <th>Title</th>
+                <th>Rating</th>
+        </tr>
+      {% for movie in imdb_topTen %}
+        <tr>
+          <td>{{movie.title}} {{movie.year}}</td>
+          <td>{{movie.rating}}/10</td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+    <div class="tomato-table">
+      <h4 style="text-decoration: underline; text-align: center;">Rotten Tomatoes Top Movies</h4>
+      <br>
+      <table>
+        <tr>
+                <th>Title</th>
+                <th>Rating</th>
+        </tr>
+      {% for movie in tomato_topTen %}
+        <tr>
+          <td>{{movie.title}}</td>
+          <td>{{movie.rating}}</td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
