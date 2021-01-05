@@ -11,6 +11,7 @@ from urllib import robotparser
 
 
 def index(request):
+    # Checks with the websites robots.txt to make sure the info being scraped is allowed
     rp = robotparser.RobotFileParser()
     rp.set_url("https://www.imdb.com/robots.txt")
     rp.read()
@@ -27,6 +28,7 @@ def index(request):
 
         imdb_topTen = []
 
+        # Goes through the parsed html and creates an accessible dictionary to use
         for i in range(1,11):
             info = {
                 "image": containers[i].find("img")['src'],
@@ -37,7 +39,7 @@ def index(request):
 
             imdb_topTen.append(info)
 
-
+    # Checks with the websites robots.txt to make sure the info being scraped is allowed
     rp = robotparser.RobotFileParser()
     rp.set_url("https://www.rottentomatoes.com/robots.txt")
     rp.read()
@@ -54,7 +56,8 @@ def index(request):
         containers = table.findAll("tr")
 
         tomato_topTen = []
-
+        
+        # Goes through the parsed html and creates an accessible dictionary to use
         for i in range(1,11):
             info = {
                 "title": containers[i].a.text.strip(),
