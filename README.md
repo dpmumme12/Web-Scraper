@@ -1,5 +1,23 @@
-<h3>CS50W Final Project</h3>
-<hr>
-==Description==
-<br>
-For my final project I wanted to take the opportunity to leanr how to webscrape with Python's Beautifulsoup module. It is a movie searcher where you can that uses Imdb data to search for movies and also uses Rotten tomato data to recieve the movie ratings. I made sure to be careful not to violate the websites scraping policies by using Python's Robotpaser module to make sure I adhere to their robot.txt. Javascript is used to add a movie of the user's choosing to their watchlist. I believe this meets the requirements of the project as it is exploring a different technology taught from the class that is highly usable to further expand my knowledge of web programming.
+## Web Scraper
+
+### ==Description==</h3>
+This is a movie searcher that uses Imdb and Rotten Tomato data to search for and display movies with their ratings and description. It utilizes python's BeautifulSoup moduel to scrape the websites for data and python's robotparser module to make sure it ahere's to each stite's robot.txt file. You can see a link to the demo at the bottom of this page, enjoy!
+
+### ==Files and directories==
+- `ratings` - Main application directory.
+  - `static/ratings` - Contains all static files.
+    - `static.js` - This script adds movies to your watchlist.
+    - `styles.css` - Contains all the css for the app.
+  - `template/ratings` - Contains all html files for the app.
+    - `layout.html` - The base template that all other templates extend.
+    - `index.html` - Main template or "homepage".
+    - `search.html` - The search results page that displays a list of movies with their ratings and descriptions from the query.
+    - `watchlist.html` - Displayes a list of all the movies the user has added to their watchlist.
+    - `register.html` - Registers the user for the app.
+    - `login.html` - Page where the user can login in if they have an account.
+  - `models.py` - Contains two models for the app. Django's default `User` class for registering users and `Watchlist` which add movies to the users watchlist.
+  - `urls.py` - Contains all the urls for the app.
+  - `views.py` - Contains all the views for the app.
+- `scraper` - Project directory.
+
+Demo link https://movie-ratings-scraper.herokuapp.com/
