@@ -6,16 +6,11 @@ This is a movie searcher that uses Imdb and Rotten Tomato data to search for and
 ### ==Files and directories==
 - `ratings` - Main application directory.
   - `static/ratings` - Contains all static files.
-    - `static.js` - This script adds movies to your watchlist.
     - `styles.css` - Contains all the css for the app.
   - `template/ratings` - Contains all html files for the app.
     - `layout.html` - The base template that all other templates extend.
     - `index.html` - Main template or "homepage".
     - `search.html` - The search results page that displays a list of movies with their ratings and descriptions from the query.
-    - `watchlist.html` - Displayes a list of all the movies the user has added to their watchlist.
-    - `register.html` - Registers the user for the app.
-    - `login.html` - Page where the user can login in if they have an account.
-  - `models.py` - Contains two models for the app. Django's default `User` class for registering users and `Watchlist` which add movies to the users watchlist.
   - `urls.py` - Contains all the urls for the app.
   - `views.py` - Contains all the views for the app.
 - `scraper` - Project directory.
