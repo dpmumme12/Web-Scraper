@@ -73,16 +73,16 @@ def index(request):
 
 def search(request):
     if (request.method == "POST"):
-
+        #gets the users movie search query
         query = request.POST.get("query")
-        
+        #parses imdb to get results for the query
         base_url = "https://www.imdb.com/search/title/?"
         my_url = base_url + parse.urlencode({"title": query})
 
         rp = robotparser.RobotFileParser()
         rp.set_url("https://www.imdb.com/robots.txt")
         rp.read()
-
+        #Checks robots.txt file to see if they allow the page to be scraped
         if rp.can_fetch("*", my_url):
             uClient = urlopen(my_url)
             page_html = uClient.read()
